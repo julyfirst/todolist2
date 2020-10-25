@@ -12,7 +12,7 @@
 
 <style scoped>
     #name {
-        color: green;
+        color: #6478FB;
         font-weight: 900;
         margin: 2.5rem 0 1.5rem;
     }
