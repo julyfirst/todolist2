@@ -1,13 +1,13 @@
 <template>
-    
+    <div>List</div>
 </template>
 
 <script>
     export default {
-        name: "TodoHeader"
+        name: "TodoList"
     }
 </script>
 
-<style scoped>
+<style >
 
 </style>
