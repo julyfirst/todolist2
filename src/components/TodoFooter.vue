@@ -1,6 +1,6 @@
 <template>
     <div class="clearAllContainer">
-        <span class="clearAllBtn" @click="clearTodo">전체 삭제</span>
+        <button class="clearAllBtn"  @click="clearTodo">전체 삭제</button>
     </div>
 </template>
 
@@ -9,26 +9,51 @@
         name: "TodoFooter",
         methods: {
             clearTodo() {
-                localStorage.clear();
-            }
+                this.$emit('removeAll');
+            },
         },
-        claerTodo() {
-            this.$emit('removeAll');
-        }
     }
 </script>
 
 <style scoped>
-    .clearAllContainer {
-        width: 8.5rem;
-        height: 50px;
-        line-height: 50px;
-        background-color: white;
-        border-radius: 5px;
-        margin:0 auto;
-    }
+
     .clearAllBtn {
-        color: #e20303;
-        display: block;
+        background:skyblue;
+        color:black;
+        border:none;
+        position:relative;
+        height:60px;
+        font-size:1.6em;
+        padding:0 2em;
+        cursor:pointer;
+        transition:800ms ease all;
+        outline:none;
+        border-radius: 5px 5px 5px 5px;
+        width:20%;
+        font-size:20px;
+    }
+    .clearAllBtn:hover {
+        background:#fff;
+        color:#1AAB8A;
+    }
+    .clearAllBtn:before,.clearAllBtn:after{
+        content:'';
+        position:absolute;
+        top:0;
+        right:0;
+        height:2px;
+        width:0;
+        background: #6478FB;
+        transition:400ms ease all;
+    }
+    .clearAllBtn:after{
+        right:inherit;
+        top:inherit;
+        left:0;
+        bottom:0;
+    }
+    .clearAllBtn:hover:before,.clearAllBtn:hover:after{
+        width:100%;
+        transition:800ms ease all;
     }
 </style>

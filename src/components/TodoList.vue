@@ -1,7 +1,8 @@
 <template>
     <section>
+        <!-- transition-group 애니메이션 사용할 떄 쓰는 태그-->
         <transition-group name="list" tag="ul">
-           <li v-for="(todoItem, index) in propsdata" class="shadow" :key="todoItem">
+           <li v-for="(todoItem, index) in propsdata" class="shadow" :key="todoItem" >
                <i class="checkBtn fas fa-check" aria-hidden="true"></i>
                {{ todoItem }}
                <span class="removeBtn" type="button" @click="removeTodo(todoItem, index)">
@@ -16,6 +17,7 @@
     export default {
         name: "TodoList",
         props: ['propsdata'],
+
         methods: {
             removeTodo(todoItem, index) {
                 this.$emit('removeTodo', todoItem, index);

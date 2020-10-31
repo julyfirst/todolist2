@@ -1,6 +1,6 @@
 <template>
     <div class="inputBox shadow">
-        <input type="text" v-model="newTodoItem" placeholder="할 일을 입력해 주세요" v-on:keyup.enter="addToDo">
+        <input type="text" v-model="newTodoItem" placeholder="할 일을 입력해 주세요" v-on:keyup.enter="addToDo"/>
         <span class="addContainer" v-on:click="addToDo">
             <i class="addBtn fas fa-plus" aria-hidden="true"></i>
         </span>
@@ -20,12 +20,10 @@
     export default {
         name: "TodoInput",
         props: ['propsdata'],
-        data() {
-            return {
+        data:() => ({
                 newTodoItem: '',
                 showModal: false,
-            }
-        },
+        }),
         methods: {
             addToDo() {
                 // console.log(this.newTodoItem); 콘솔 확인용
@@ -35,7 +33,7 @@
                     // 입력받은 텍스트를 로컬 스토리지의 setItem() API를 이용하여 저장
                     // setItem()은 로컬 스토리지에 데이터를 추가하는 APi
                     // localStorage.setItem(value, value);
-                    this.$emit('addToDo', value);
+                    this.$emit('addToDoList', value);
                     this.clearInput();
                 } else {
                     this.showModal = !this.showModal;
