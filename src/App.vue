@@ -7,6 +7,7 @@
     <todo-list
             v-bind:propsdata="todoItems"
             @removeTodo="removeTodo"
+            @update="updateTodo"
     ></todo-list>
     <todo-footer
            @removeAll="clearAll"
@@ -54,6 +55,13 @@ export default {
       console.log(index)
       localStorage.removeItem(todoItem);
       this.todoItems.splice(index, 1);
+    },
+    updateTodo(todoItem, index) {
+      console.log(todoItem)
+      console.log(index)
+      this.todoItems[index].concat(todoItem)
+     /* localStorage.setItem(this.todoItems[index], this.todoItems[index]);
+      this.todoItems[index].push(todoItem);*/
     },
   },
   name: 'App',
